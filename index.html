@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container{
+            margin: auto;
+            width: 800px;
+            height: 800px;
+            overflow: hidden;
+            background: royalblue;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        示例
+        <div class="container" v-dragscroll>
+            <img src="./assets/test.webp" alt="" :draggable="false">
+        </div>
+    </div>
+
+</body>
+<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+<script src="./dist/vue-dragscrollandzoom.js"></script>
+<script>
+    new Vue({
+      el: '#app',
+      data: {
+        drag: true,
+        oh: false
+      },
+      methods: {
+        eventTrigged: function(name, e) {
+          console.log(name);
+          if (name == 'dragscrollmove') {
+            console.log(e.detail)
+          }
+        },
+        testClick: function() {
+          alert('Clicked')
+        }
+      }
+    })
+  </script>
+
+</html>
